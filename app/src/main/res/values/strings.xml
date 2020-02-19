@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">ListNote</string>
     <string name="new_note">New Note</string>
+    <string name="title">Title</string>
+    <string name="body">Body</string>
+    <string name="share_note">Share Note</string>
 </resources>

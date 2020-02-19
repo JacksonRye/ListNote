@@ -105,13 +105,33 @@ class NoteListFragment : Fragment() {
             this.note = note
             titleTextView.text = this.note.title
             previewTextView.text = this.note.body
-                .subSequence(0, 15).toString().plus(" ...")
-
-
-
+            dateTextView.text = this.note.date.toString()
         }
 
+        override fun onClick(v: View?) {
+            callbacks?.onNoteSelected(note.id)
+        }
 
+    }
+
+    private inner class NoteAdapter(var notes: List<Note>) : RecyclerView.Adapter<NoteHolder>() {
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteHolder {
+            val view = layoutInflater.inflate(R.layout.list_item_note, parent, false)
+            return NoteHolder(view)
+        }
+
+        override fun getItemCount() = notes.size
+
+        override fun onBindViewHolder(holder: NoteHolder, position: Int) {
+            val note = notes[position]
+            holder.bind(note)
+        }
+    }
+
+    companion object {
+        fun newInstance(): NoteListFragment {
+            return NoteListFragment()
+        }
     }
 
 

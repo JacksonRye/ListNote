@@ -1,7 +1,7 @@
 package com.computerwizards.listnote
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import java.util.*
 
 class MainActivity : AppCompatActivity(),
@@ -25,7 +25,12 @@ class MainActivity : AppCompatActivity(),
     }
 
     override fun onNoteSelected(noteId: UUID) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val fragment = NoteFragment.newInstance(noteId)
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .addToBackStack(null)
+            .commit()
     }
 
 
