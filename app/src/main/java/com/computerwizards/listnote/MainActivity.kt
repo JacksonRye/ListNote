@@ -33,5 +33,13 @@ class MainActivity : AppCompatActivity(),
             .commit()
     }
 
+    override fun onSettingsMenuClicked() {
+        val fragment = SettingsFragment.newInstance()
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .commit()
+    }
+
 
 }

@@ -4,4 +4,7 @@
     <string name="title">Title</string>
     <string name="body">Body</string>
     <string name="share_note">Share Note</string>
+    <string name="settings">settings</string>
+    <string name="about">About</string>
+    <string name="about_string">Made By Jackson Chijioke</string>
 </resources>

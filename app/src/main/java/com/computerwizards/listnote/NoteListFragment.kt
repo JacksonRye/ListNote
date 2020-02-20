@@ -15,6 +15,8 @@ class NoteListFragment : Fragment() {
 
     interface Callbacks {
         fun onNoteSelected(noteId: UUID)
+
+        fun onSettingsMenuClicked()
     }
 
     private var callbacks: Callbacks? = null
@@ -79,6 +81,12 @@ class NoteListFragment : Fragment() {
                 callbacks?.onNoteSelected(note.id)
                 true
             }
+
+            R.id.settings -> {
+                callbacks?.onSettingsMenuClicked()
+                true
+            }
+
             else -> return super.onOptionsItemSelected(item)
         }
     }
