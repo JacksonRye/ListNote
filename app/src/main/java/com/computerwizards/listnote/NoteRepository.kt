@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.room.Room
 import com.computerwizards.listnote.database.NoteDatabase
-import java.lang.IllegalStateException
+import java.io.File
 import java.util.*
 import java.util.concurrent.Executors
 
@@ -20,10 +20,13 @@ class NoteRepository private constructor(context: Context) {
 
     private val noteDoa = database.noteDao()
     private val executor = Executors.newSingleThreadExecutor()
+    private val filesDir = context.applicationContext.filesDir
 
     fun getNotes(): LiveData<List<Note>> = noteDoa.getNotes()
 
     fun getNote(id: UUID): LiveData<Note?> = noteDoa.getNote(id)
+
+    fun getPhotoFile(): File = File(filesDir, "image")
 
     fun updateNote(note: Note) {
         executor.execute {
