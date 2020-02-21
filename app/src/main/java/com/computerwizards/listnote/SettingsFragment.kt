@@ -21,6 +21,8 @@ import java.io.File
 
 private const val REQUEST_ABOUT = 0
 private const val REQUEST_IMAGE_CAPTURE = 1
+private const val REQUEST_SHOW_IMAGE = 2
+private const val DIALOG_IMAGE = "dialog_image"
 private const val DIALOG_ABOUT = "dialog_about"
 
 class SettingsFragment : Fragment() {
@@ -88,6 +90,17 @@ class SettingsFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
+
+        profileImage.apply {
+            setOnClickListener {
+
+                ShowImageDialogFragment.newInstance(photoFile).apply {
+                    setTargetFragment(this@SettingsFragment, REQUEST_SHOW_IMAGE)
+                    show(this@SettingsFragment.parentFragmentManager, DIALOG_IMAGE)
+                }
+
+            }
+        }
 
         cameraButton.apply {
             val packageManager: PackageManager = requireActivity().packageManager

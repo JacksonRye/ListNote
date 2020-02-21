@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="404dp"
+        android:adjustViewBounds="false"
+        android:cropToPadding="false"
+        android:saveEnabled="true"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/author" />
 
     <TextView
         android:id="@+id/textView"
@@ -10,9 +21,15 @@
         android:layout_height="wrap_content"
         android:text="@string/about_string" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/copyright" />
+
     <Button
         android:id="@+id/button_close"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Ok" />
+
 </LinearLayout>
